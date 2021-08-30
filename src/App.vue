@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  components: {
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
 <style>
@@ -21,5 +22,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  user-select: none;
+}
+
+button{
+  cursor: pointer;
 }
 </style>

@@ -14,10 +14,14 @@ const routes = [
   },
   {
     path: '/list',
-    component: List
+    component: List,
+    meta:{
+      keepAlive:true
+    }
   },
   {
     path: '/details',
+    name: 'details',
     component: Details
   }
 ]
