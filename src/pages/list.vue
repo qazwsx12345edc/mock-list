@@ -13,13 +13,19 @@
     <div v-for="item in list" :key="item.id">
       <div @click="onClickShowDetails(item)" class="list-item">
         {{ item.id }}: {{ "我是第" + item.id + "条数据" }}
+        <br>
+        {{item.email}}
+        <br>
+        {{item.date}}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
+  name: "list",
   data() {
     return {
       list: [],
@@ -52,17 +58,20 @@ export default {
     onClickMoveToHome() {
       this.$router.push("/home");
     },
+
+    ...mapMutations(["setKeepAlive"])
   },
 
   beforeRouteLeave(to, from, next) {
     console.log(from.path + " => " + to.path);
     if (to.path === "/details") {
-      from.meta.keepAlive = true;
+      this.setKeepAlive(["list"])
     } else {
-      from.meta.keepAlive = false;
+      this.setKeepAlive("[]")
     }
     next();
   },
+
 };
 </script>
 

@@ -1,8 +1,14 @@
 import Mock from 'mockjs'
 
+Mock.setup({
+  timeout: 400
+})
+
 const data = Mock.mock({
   'list|100': [{
     'id|+1': 1,
+    'email': '@email',
+    'date': '@date'
   }]
 })
 

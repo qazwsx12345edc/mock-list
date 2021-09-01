@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import router from './router/router.js'
 import axios from 'axios'
 import { get, post } from './axios/index.js'
+import store from "./store/index"
 
 import './mock/index.js'
 
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 
 new Vue({
   axios,
+  store,
   router,
   render: h => h(App),
 }).$mount('#app')

@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <router-view v-if="$route.meta.keepAlive"></router-view>
+    <keep-alive :include="keepAlive">
+      <router-view />
     </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "App",
   components: {},
+  computed: {
+    ...mapGetters(["keepAlive"]),
+  },
 };
 </script>
 
@@ -25,7 +29,7 @@ export default {
   user-select: none;
 }
 
-button{
+button {
   cursor: pointer;
 }
 </style>

@@ -15,9 +15,6 @@ const routes = [
   {
     path: '/list',
     component: List,
-    meta:{
-      keepAlive:true
-    }
   },
   {
     path: '/details',

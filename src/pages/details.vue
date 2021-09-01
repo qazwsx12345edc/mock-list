@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: "detail",
   data() {
     return {
       value: null,
@@ -20,7 +21,7 @@ export default {
 
   methods: {
     onClickMoveBack() {
-      this.$router.go('-1');
+      this.$router.back();
     },
   },
 };
